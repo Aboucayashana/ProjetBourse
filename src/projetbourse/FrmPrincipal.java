@@ -196,7 +196,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         trad1.getLesActions().add(act1); trad1.getLesActions().add(act2); trad1.getLesActions().add(act7);
         trad2.getLesActions().add(act1); trad2.getLesActions().add(act3); trad2.getLesActions().add(act4); trad2.getLesActions().add(act5);
         trad3.getLesActions().add(act6); trad3.getLesActions().add(act7);
-        trad4.getLesActions().add(act4); trad4.getLesActions().add(act5); trad2.getLesActions().add(act1);
+        trad4.getLesActions().add(act4); trad4.getLesActions().add(act5); trad4.getLesActions().add(act1);
         
         
         
@@ -235,7 +235,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     dtmActions.addRow(v);
                 }
             }
+        double valeurActuelle = 0;
+        int quantiteAchete = 0;
+        double prixDachat = 0;
+        double montantPorteFeuille = 0;
         
+        for (Trader trad : mesTraders )
+            if(trad.getIdTrader() == numTraders)
+        {
+            for (Action act : trad.getLesActions())
+            {
+                montantPorteFeuille = ((act.getQuantiteAchete() * act.valeurActuelle()) -(act.getPrixDachat() * act.getQuantiteAchete()) + montantPorteFeuille);
+            }
+        }
+        lblPortefeuille.setText(String.valueOf(montantPorteFeuille));
         
         
         
@@ -244,6 +257,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void tblActionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblActionsMouseClicked
         
         // A vous de jouer
+        int numActions;
+        numActions= Integer.parseInt(tblTraders.getValueAt(tblTraders.getSelectedRow(),0).toString());
+        
+        
+        
+        
         
     }//GEN-LAST:event_tblActionsMouseClicked
 
