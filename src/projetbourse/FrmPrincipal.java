@@ -258,17 +258,55 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         // A vous de jouer
         int numActions;
-        numActions= Integer.parseInt(tblTraders.getValueAt(tblTraders.getSelectedRow(),0).toString());
+        numActions= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
+       
         
-        
-        
-        
-        
+        for( Trader trad : mesTraders)
+            if(trad.getIdTrader() == numActions)
+                for(Action act : trad.getLesActions())
+                {
+                    if( act.valeurActuelle() > act.getPrixDachat())
+                    {
+                        lblMessage.setText("Vous gagnez de l'argent sur cette action : " + (((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete())));
+                    }
+                    else
+                    {
+                        lblMessage.setText("Vous perdez  de l'argent sur cette action : " + (((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete())));
+                    }
+                }
     }//GEN-LAST:event_tblActionsMouseClicked
 
     private void btnVendreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendreMouseClicked
         
         // A vous de jouer
+        JOptionPane.showMessageDialog(this, "Sélectionner une action");
+        JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité");
+        JOptionPane.showMessageDialog(this, " Vous ne pouvez pas vendre plus que ce que vous possédez");
+        
+        
+        int numActions;
+        numActions= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
+        
+        
+        for( Trader trad : mesTraders)
+            if(trad.getIdTrader() == numActions)
+                for(Action act : trad.getLesActions())
+                {
+                    if( )
+                    {
+                        
+                    }
+                    else if( )
+                    {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+        
+        
         
     }//GEN-LAST:event_btnVendreMouseClicked
 
