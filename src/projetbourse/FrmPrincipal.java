@@ -216,13 +216,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void tblTradersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTradersMouseClicked
         
         // A vous de jouer
-        int numTraders;
-        numTraders = Integer.parseInt(tblTraders.getValueAt(tblTraders.getSelectedRow(),0).toString());
+        
+        numTrader = Integer.parseInt(tblTraders.getValueAt(tblTraders.getSelectedRow(),0).toString());
         // effacer le contenu du jtable 
         dtmActions.getDataVector().removeAllElements();
         
         for (Trader trad : mesTraders)
-            if(trad.getIdTrader() == numTraders)
+            if(trad.getIdTrader() == numTrader)
             {
                 for ( Action act : trad.getLesActions())
                 {
@@ -235,13 +235,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     dtmActions.addRow(v);
                 }
             }
-        double valeurActuelle = 0;
-        int quantiteAchete = 0;
-        double prixDachat = 0;
+//      
         double montantPorteFeuille = 0;
         
         for (Trader trad : mesTraders )
-            if(trad.getIdTrader() == numTraders)
+            if(trad.getIdTrader() == numTrader)
         {
             for (Action act : trad.getLesActions())
             {
@@ -257,17 +255,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void tblActionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblActionsMouseClicked
         
         // A vous de jouer
-        int numActions;
-        numActions= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
+       
+        numAction= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
        
         
+         
+        
         for( Trader trad : mesTraders)
-            if(trad.getIdTrader() == numActions)
+            if(trad.getIdTrader() == numAction)
                 for(Action act : trad.getLesActions())
                 {
-                    if( act.valeurActuelle() > act.getPrixDachat())
+                    if( act.valeurActuelle() > act.getPrixDachat() )
                     {
-                        lblMessage.setText("Vous gagnez de l'argent sur cette action : " + (((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete())));
+                        lblMessage.setText("Vous gagnez de l'argent sur cette action : " + ((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete()));
                     }
                     else
                     {
@@ -284,12 +284,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, " Vous ne pouvez pas vendre plus que ce que vous possédez");
         
         
-        int numActions;
-        numActions= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
+        
+        numAction = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(),0).toString());
         
         
         for( Trader trad : mesTraders)
-            if(trad.getIdTrader() == numActions)
+            if(trad.getIdTrader() == numAction)
                 for(Action act : trad.getLesActions())
                 {
                     if( )
