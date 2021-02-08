@@ -292,11 +292,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if(trad.getIdTrader() == numAction)
                 for(Action act : trad.getLesActions())
                 {
-                    if( )
+                    if(txtQuantiteVendue = act.getQuantiteAchete())
                     {
                         
                     }
-                    else if( )
+                    else if( txtQuantiteVendue < act.getQuantiteAchete())
                     {
                         
                     }
