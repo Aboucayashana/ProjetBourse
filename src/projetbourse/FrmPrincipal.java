@@ -243,6 +243,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         {
             for (Action act : trad.getLesActions())
             {
+                
                 montantPorteFeuille = ((act.getQuantiteAchete() * act.valeurActuelle()) -(act.getPrixDachat() * act.getQuantiteAchete()) + montantPorteFeuille);
             }
         }
@@ -262,12 +263,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
          
         
         for( Trader trad : mesTraders)
-            if(trad.getIdTrader() == numAction)
+            if(trad.getIdTrader() == numTrader)
                 for(Action act : trad.getLesActions())
                 {
-                    if( act.valeurActuelle() > act.getPrixDachat() )
+                    if( act.getIdAction() == numAction)
                     {
-                        lblMessage.setText("Vous gagnez de l'argent sur cette action : " + ((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete()));
+                        if(trad.getIdTrader() == numTrader)
+                        {
+                            lblMessage.setText("Vous gagnez de l'argent sur cette action : " + ((act.valeurActuelle() - act.getPrixDachat()) * act.getQuantiteAchete()));
+                        }
+                        
                     }
                     else
                     {
@@ -292,18 +297,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
             if(trad.getIdTrader() == numAction)
                 for(Action act : trad.getLesActions())
                 {
-                    if(txtQuantiteVendue = act.getQuantiteAchete())
-                    {
-                        
-                    }
-                    else if( txtQuantiteVendue < act.getQuantiteAchete())
-                    {
-                        
-                    }
-                    else
-                    {
-                        
-                    }
+//                    if(txtQuantiteVendue = act.getQuantiteAchete())
+//                    {
+//                        
+//                    }
+//                    else if( txtQuantiteVendue < act.getQuantiteAchete())
+//                    {
+//                        
+//                    }
+//                    else
+//                    {
+//                        
+//                    }
                 }
         
         
